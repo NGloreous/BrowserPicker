@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<BrowserPicker DefaultBrowser="Chrome">
+    <Browsers>
+        <Browser Name="Chrome" Path="C:\Program Files (x86)\Google\Chrome\Application\chrome.exe" />
+        <Browser Name="IE" Path="C:\Program Files\Internet Explorer\iexplore.exe" />
+    </Browsers>
+    <Rules>
+        <Match Browser="IE" HostRegex="^[^.]*$" />
+    </Rules>
+</BrowserPicker>
