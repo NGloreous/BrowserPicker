@@ -42,7 +42,7 @@
             }
         }
 
-        public string GetBrowserPath(Uri uri)
+        public BrowserInfo GetBrowser(Uri uri)
         {
             BrowserMatchRule match = this.Rules.FirstOrDefault(r => r.IsMatch(uri));
 
@@ -50,7 +50,7 @@
             var browserInfo =
                 this.Browsers.FirstOrDefault(b => b.Name.Equals(browserName, StringComparison.OrdinalIgnoreCase));
 
-            return browserInfo != null ? browserInfo.Path : null;
+            return browserInfo;
         }
     }
 }

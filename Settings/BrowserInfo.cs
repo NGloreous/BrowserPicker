@@ -9,5 +9,8 @@ namespace BrowserPicker.Settings
 
         [XmlAttribute]
         public string Path { get; set; }
+
+        [XmlAttribute]
+        public string Arguments { get; set; }
     }
 }

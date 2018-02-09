@@ -13,7 +13,7 @@
             this.Arguments = BrowserPickerArguments.Parse(args);
         }
 
-        private BrowserPickerArguments Arguments { get; set; }
+        private BrowserPickerArguments Arguments { get; }
 
         public void Execute()
         {
@@ -22,7 +22,8 @@
                 case Mode.OpenUri:
                     {
                         var settings = BrowserPickerSettings.Load();
-                        Launch(settings.GetBrowserPath(this.Arguments.Uri), this.Arguments.Uri.AbsoluteUri);
+                        BrowserInfo browser = settings.GetBrowser(this.Arguments.Uri);
+                        Launch(browser.Path, $"{browser.Arguments} {this.Arguments.Uri.AbsoluteUri}");
                         break;
                     }
                 case Mode.OpenSettings:
@@ -49,7 +50,7 @@
 
         private class BrowserPickerArguments
         {
-            public BrowserPickerArguments()
+            private BrowserPickerArguments()
             {
                 this.Mode = Mode.OpenUri;
             }
